@@ -73,4 +73,12 @@ public class BookController {
 		return new Result<AppointExecution>(true, execution);
 	}
 
+    @RequestMapping(value = "test/list", method = RequestMethod.GET)
+    private String list1(Model model) {
+        List<Book> list = bookService.getList();
+        model.addAttribute("list", list);
+        // list.jsp + model = ModelAndView
+        return "list";// WEB-INF/jsp/"list".jsp
+    }
+
 }
